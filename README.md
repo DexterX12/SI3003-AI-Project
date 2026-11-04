@@ -1,13 +1,11 @@
 # FashionRec
 
 Recomendador de moda con **filtrado colaborativo basado en ítems** sobre reseñas reales de
-[Amazon Reviews 2023 – Amazon Fashion](https://amazon-reviews-2023.github.io/). Todo corre localmente
-desde Streamlit: explora prendas, califícalas de 1 a 5 estrellas y mira cómo cambian tus recomendaciones
-al instante, sin reentrenar nada.
+[Amazon Reviews 2023 – Amazon Fashion](https://amazon-reviews-2023.github.io/).
 
-Algoritmos (solo dos, a propósito):
+Algoritmos:
 
-| Algoritmo | Idea |
+| Algoritmo | Propósito |
 | --- | --- |
 | **Popularity-Based** | Media ponderada entre el rating del producto y el global, según su número de reseñas. Se usa mientras el usuario no ha calificado nada. |
 | **Item-Based CF (Item-KNN)** | Recomienda productos que suelen recibir valoraciones similares de los mismos usuarios (similitud coseno, 50 vecinos por producto). |
@@ -72,8 +70,7 @@ python scripts/prepare_data.py --min-user 2 --min-item 5 --top-k 50
 4. **Dashboard**: estadísticas del dataset.
 5. En la barra lateral: contador de calificados, lista para quitar valoraciones, **descargar CSV** y **reiniciar perfil**.
 
-Las valoraciones viven en `st.session_state`: no hay cuentas ni base de datos, y se pierden al cerrar la pestaña
-(descarga el CSV si quieres conservarlas).
+Las valoraciones viven de forma temporal en `st.session_state`. La información se pierde al cerrar la pestaña. (Descarga el CSV si quieres conservarlas).
 
 ## Estructura
 
@@ -112,14 +109,6 @@ docs/                      Algoritmos, experimentos y resultados
 
 El identificador de producto es siempre `parent_asin`, tanto en reseñas como en metadata.
 
-## Pruebas y experimentos
-
-```powershell
-python -m pytest tests -q                       # 30 pruebas
-python scripts/evaluate.py --users 0 --save     # leave-last-out sobre todos los usuarios
-python scripts/evaluate.py --users 0 --sweep    # barrido del hiperparámetro shrink
-```
-
 ## Limitaciones conocidas
 
 * **Categorías inferidas.** La metadata de Amazon Fashion 2023 no trae categorías útiles (`categories` vacío
@@ -127,6 +116,5 @@ python scripts/evaluate.py --users 0 --sweep    # barrido del hiperparámetro sh
   aproximación y algunos productos caen en «Otros». El departamento sale de `details["Department"]` o del título.
 * **Dataset muy disperso** (99.95 %). Cada producto tiene en promedio ~18 vecinos con evidencia (de un máximo de 50),
   por lo que con pocas valoraciones Item-KNN solo cubre una parte del catálogo; el resto de la lista se
-  completa con Popularity y se marca en la tarjeta.
-* **Imágenes remotas.** Se cargan desde los servidores de Amazon; sin internet las tarjetas se ven sin imagen.
+  completa con Popularity.
 * **Catálogo sesgado a joyería y accesorios**, reflejo de los datos (el filtro favorece productos con muchas reseñas).
