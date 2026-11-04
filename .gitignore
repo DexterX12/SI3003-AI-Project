@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Datos crudos
+data/raw/
+/Amazon_Fashion.jsonl
+/meta_Amazon_Fashion.jsonl
+*.part
