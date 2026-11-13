@@ -1,6 +1,7 @@
 # FashionRec: recomendador de moda con filtrado colaborativo
 
-**Autores:** [completar nombres] · **Curso:** [completar curso] · **Fecha:** 3 de noviembre de 2026
+**Integrantes:** Nathaly Ramirez Henao, Sofia de Bedout Navarro, Valentina Vasquez George, Delvin Rodríguez Jiménez · **Curso:** 
+Inteligencia Artificial - S2666-0347 · **Fecha:** 13 de noviembre de 2026
 
 ## 1. Introducción
 
