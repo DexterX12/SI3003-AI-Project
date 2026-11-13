@@ -159,22 +159,3 @@ Se sobrescriben los archivos existentes. Los directorios se crean si no existen.
 **`model_info.json`**: `created_at`, `min_user_interactions`, `min_item_interactions`, `top_k_neighbors`, `raw_reviews`,
 `n_users`, `n_items`, `n_ratings`, `sparsity`, `similarity_nnz`, `global_mean`, `m`, `quantile`, `bias_reg`.
 La app lo lee para mostrar cifras y para fijar `global_mean` en el recomendador.
-
-## Salida por consola
-
-```
-[1/7] Leyendo reseñas: …\Amazon_Fashion.jsonl
-      2,500,939 reseñas leídas
-[2/7] Limpiando interacciones
-      2,474,375 interacciones únicas usuario-producto
-[3/7] Prefiltro (productos con >= 5 interacciones) …
-      93,728 productos candidatos
-[4/7] Uniendo metadata: …\meta_Amazon_Fashion.jsonl
-      93,724 productos con título e imagen
-[5/7] Filtro iterativo (usuarios >= 2, productos >= 5)
-      …
-      21,034 usuarios, 4,823 productos, 50,457 ratings
-[6/7] Popularidad y matriz de similitud
-[7/7] Guardando artefactos
-Listo en 28s. …
-```

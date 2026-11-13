@@ -1,7 +1,7 @@
 # Algoritmos
 
 FashionRec usa dos recomendadores. Todo el entrenamiento ocurre una vez en `scripts/prepare_data.py`;
-cuando el usuario califica una prenda **no se entrena nada**: solo se usa la matriz de similitud
+cuando el usuario califica una prenda no se entrena nada, solo se usa la matriz de similitud
 precalculada y sus valoraciones de la sesión.
 
 ## Flujo de recomendación
@@ -87,7 +87,7 @@ Score   = b_ui + Σ_j sim(j,i) · (r_uj − b_uj) / (Σ_j |sim(j,i)| + λ)
 
 | Parámetro | Valor | Dónde se fija | Cómo se eligió |
 | --- | --- | --- | --- |
-| vecinos por producto | 50 | `--top-k` | requisito del proyecto |
+| vecinos por producto | 50 | `--top-k` | Mínimo arbitrario |
 | `λ` (shrink) | 0.1 | `DEFAULT_SUPPORT_SHRINK` | barrido en [`EXPERIMENTS.md`](EXPERIMENTS.md): mejor RMSE sin perder HR@10 |
 | regularización de `bu` | 3 | `DEFAULT_USER_BIAS_REG` | con pocos ratings el sesgo de usuario debe ser pequeño |
 | regularización de `b_j` | 10 | `BIAS_REGULARIZATION` | evita sesgos extremos en productos con 5 reseñas |
