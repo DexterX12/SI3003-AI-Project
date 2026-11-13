@@ -62,8 +62,7 @@ El identificador de producto es `parent_asin` en ambos archivos.
 * **Imágenes remotas** servidas por Amazon: sin internet las tarjetas se ven sin imagen.
 
 **Licencia y uso.** La tarjeta del dataset no declara una licencia explícita. Las reseñas, imágenes y marcas pertenecen a Amazon y a sus autores,
-y el proyecto lo usa solo con fines académicos. Antes de cualquier uso comercial o de redistribución de `data/processed/` hay que revisar sus términos.
-Cita original: Hou et al., *Bridging Language and Items for Retrieval and Recommendation*, arXiv:2403.03952, 2024.
+y el proyecto lo usa solo con fines académicos.
 
 ## 4. Metodología
 
